@@ -1,10 +1,11 @@
 import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
+import svgr from 'vite-plugin-svgr';
 import path from 'path';
 
 export default defineConfig({
-    plugins: [react()],
-    base: '/test_mindbox/',
+    plugins: [react(), svgr()],
+    base: '/chips/',
     resolve: {
         alias: {
             '@app': path.resolve(__dirname, 'src/app'),

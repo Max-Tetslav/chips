@@ -28,7 +28,7 @@
         "noEmit": true,
         "jsx": "react-jsx",
 
-        "types": ["vite/client", "node", "vitest/globals", "@testing-library/jest-dom"],
+        "types": ["./config/global.d.ts", "vite/client", "node", "vitest/globals", "@testing-library/jest-dom"],
 
         /* Linting */
         "strict": true,
