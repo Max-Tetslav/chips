@@ -1,10 +1,8 @@
 name: Lint-project
 run-name: Lint-project
 on:
-    workflow_run:
-        workflows: ['Test-project']
-        types:
-            - completed
+    push:
+        branches: [main]
 jobs:
     Lint-project:
         if: github.event.workflow_run.conclusion == 'success'

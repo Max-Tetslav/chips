@@ -1,1 +1,0 @@
-export { ChipsWidget } from './ChipsWidget';

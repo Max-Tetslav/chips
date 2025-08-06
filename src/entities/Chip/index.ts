@@ -1,17 +1,17 @@
-export type ChipData = {
+export type ChipDto = {
     label: string;
     id: number;
 };
 
-export type SelectableChipData = ChipData & {
+export type SelectableChip = ChipDto & {
     selected: boolean;
 };
 
-export type SelectableChipDataList = SelectableChipData[];
+export type SelectableChipList = SelectableChip[];
 
-export type ChipDataList = ChipData[];
+export type ChipDtoList = ChipDto[];
 
-export const MOCK_CHIPS: ChipDataList = [
+export const MOCK_CHIPS: ChipDtoList = [
     { id: 1, label: 'Чипс 1' },
     { id: 2, label: 'Чипс 2' },
     { id: 3, label: 'Чипс 3' },

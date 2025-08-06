@@ -1,16 +1,9 @@
 import { MOCK_CHIPS } from '@entities/Chip';
-import { ChipsWidget } from '@widgets/ui/ChipsWidget';
+import { ChipsWidget } from '@widgets/chipsWidget';
 
 export const App = () => {
     return (
-        <div
-            style={{
-                height: '100vh',
-                width: '100vw',
-                display: 'grid',
-                placeItems: 'center'
-            }}
-        >
+        <div className="app">
             <ChipsWidget chips={MOCK_CHIPS} />
         </div>
     );

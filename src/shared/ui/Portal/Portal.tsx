@@ -1,4 +1,4 @@
-import { type ReactNode, type ReactPortal } from 'react';
+import type { ReactNode, ReactPortal } from 'react';
 import { createPortal } from 'react-dom';
 
 type PortalProps = {
@@ -6,8 +6,6 @@ type PortalProps = {
     children?: ReactNode;
 };
 
-export const Portal = (props: PortalProps): ReactPortal => {
-    const { target = document.body, children } = props;
-
+export const Portal = ({ target = document.body, children }: PortalProps): ReactPortal => {
     return createPortal(children, target);
 };

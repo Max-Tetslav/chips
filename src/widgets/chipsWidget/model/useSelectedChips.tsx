@@ -1,8 +1,9 @@
 import { useCallback, useState } from 'react';
-import type { ChipDataList, SelectedChipDataList } from '@entities/Chip';
 
-export const useSelectedChips = (chips: ChipDataList) => {
-    const [selectedChips, setSelectedChips] = useState<SelectedChipDataList>(
+import type { ChipDtoList, SelectableChipList } from '@entities/Chip';
+
+export const useSelectedChips = (chips: ChipDtoList) => {
+    const [selectableChips, setSelectedChips] = useState<SelectableChipList>(
         chips.map(({ label, id }) => ({
             id,
             label,
@@ -26,7 +27,7 @@ export const useSelectedChips = (chips: ChipDataList) => {
     );
 
     return {
-        selectedChips,
+        selectableChips,
         handleSelectChip
     };
 };
