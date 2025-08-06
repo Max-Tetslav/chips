@@ -2,6 +2,7 @@ import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } fr
 
 import type { SelectableChipList } from '@entities/Chip';
 import { useDebounce } from '@shared/lib/useDebounce';
+import { DEFAULT_DEBOUNCE_DELAY, EXTAND_BUTTON_WIDTH } from '@shared/lib/constants';
 
 export const useVisibleChips = (selectableChips: SelectableChipList) => {
     const widgetContainer = useRef<HTMLDivElement>(null);
@@ -19,7 +20,7 @@ export const useVisibleChips = (selectableChips: SelectableChipList) => {
             const tempElement = document.createElement('button');
             tempElement.style.visibility = 'hidden';
             tempElement.style.position = 'absolute';
-            tempElement.style.padding = '4px 12px';
+            tempElement.style.padding = '0.5rem 0.75rem';
             tempElement.style.border = 'none';
             tempElement.style.whiteSpace = 'nowrap';
             tempElement.textContent = selectableChips[i].label;
@@ -27,7 +28,7 @@ export const useVisibleChips = (selectableChips: SelectableChipList) => {
             const width = tempElement.offsetWidth;
             container.removeChild(tempElement);
 
-            if (totalWidth + width > containerWidth - 40) break;
+            if (totalWidth + width > containerWidth - EXTAND_BUTTON_WIDTH) break;
             totalWidth += width;
             count++;
         }
@@ -35,7 +36,7 @@ export const useVisibleChips = (selectableChips: SelectableChipList) => {
         setVisibleCount(count);
     }, [widgetContainer.current]);
 
-    const debouncedCalculate = useDebounce(calculateVisibleChips, 200);
+    const debouncedCalculate = useDebounce(calculateVisibleChips, DEFAULT_DEBOUNCE_DELAY);
 
     useLayoutEffect(() => {
         calculateVisibleChips();

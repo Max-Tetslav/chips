@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactElement } from 'react';
 
 import { useClickOutside } from '@shared/lib/useClickOutside';
+import { POPUP_TOP_MARGIN } from '@shared/lib/constants';
 import { Portal } from '@shared/ui/Portal';
 
 import styles from './Popup.module.less';
@@ -11,9 +12,14 @@ type PopupProps = {
     onClose: VoidFunction;
 };
 
+type Position = {
+    top: number;
+    left: number;
+};
+
 export const Popup = ({ anchorRef, children, onClose }: PopupProps): ReactElement => {
     const popupRef = useRef<HTMLDivElement | null>(null);
-    const [position, setPosition] = useState<{ top: number; left: number }>({ top: 0, left: 0 });
+    const [position, setPosition] = useState<Position>({ top: 0, left: 0 });
 
     const calculatePosition = useCallback(() => {
         const anchor = anchorRef.current;
@@ -24,7 +30,7 @@ export const Popup = ({ anchorRef, children, onClose }: PopupProps): ReactElemen
         const popupRect = popup.getBoundingClientRect();
 
         setPosition({
-            top: anchorRect.bottom + window.scrollY + 4,
+            top: anchorRect.bottom + window.scrollY + POPUP_TOP_MARGIN,
             left: anchorRect.right + window.scrollX - popupRect.width
         });
     }, [anchorRef, popupRef]);
