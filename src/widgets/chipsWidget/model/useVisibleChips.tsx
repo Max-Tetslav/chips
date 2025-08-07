@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 
 import type { SelectableChipList } from '@entities/Chip';
-import { useDebounce } from '@shared/lib/useDebounce';
 import { DEFAULT_DEBOUNCE_DELAY, EXTAND_BUTTON_WIDTH } from '@shared/lib/constants';
+import { useDebounce } from '@shared/lib/useDebounce';
 
 export const useVisibleChips = (selectableChips: SelectableChipList) => {
     const widgetContainer = useRef<HTMLDivElement>(null);

@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactElement } from 'react';
 
-import { useClickOutside } from '@shared/lib/useClickOutside';
 import { POPUP_TOP_MARGIN } from '@shared/lib/constants';
+import { useClickOutside } from '@shared/lib/useClickOutside';
 import { Portal } from '@shared/ui/Portal';
 
 import styles from './Popup.module.less';
